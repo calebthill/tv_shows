@@ -8,3 +8,34 @@
 <div>
   <%= @television_show.synopsis %>
 </div>
+
+ <%= form_for [@television_show, @character] do |c| %>
+ <% if @character.errors.any? %>
+    <p> You had an error in your submission: </p>
+    <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+      <li><%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  </ul>
+ <%= c.label :character_name %>
+ <%= c.text_field :character_name %>
+
+ <%= c.label :actor_name %>
+ <%= c.text_field :actor_name %>
+
+ <%= c.submit %>
+ <% end %>
+
+<ul>
+ <% @television_show.characters.each  do |c| %>
+ <li> <%= c.character_name %> ------ <%= c.actor_name %> <%= c.description %></li>
+ <% end %>
+</ul>
+
+
+
+
+

@@ -1,0 +1,7 @@
+<h1> Characters: </h1>
+
+<ul>
+<% @characters.each do |c| %>
+<li><%= c.character_name %> <%= button_to "delete", c, :method => :delete %>---- <%=c.television_show.title %> </li>
+<% end %>
+</ul>
